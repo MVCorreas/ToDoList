@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  margin: 20px;
+  font-family: 'Arial', sans-serif; 
+  color: white;
+  background-image: url('/HomeBackground.png'); 
+  background-size: cover; 
+  background-repeat: repeat; 
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff44;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.title-container {
+  margin-top: 20px;
+}
+
+.sidebar {
+  width: 300px;
+  margin-right: 20px;
+}
+
+.notes-container {
+  display: flex;
+  justify-content: space-between; 
+  width: 90%; 
+  max-width: 1200px;
+  padding: 20px; 
+  background-color: white;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+.notes-section {
+  width: 70%; 
+  padding: 20px;
+}
+
+.notes-section:first-child {
+  border-right: 1px solid #ccc;
+  padding: 20px;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.note-item {
+  background: url('https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png') repeat;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(247, 232, 184, 0.797);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.272);
+  cursor: pointer;
+  height: 400px; 
+  margin-top: 50px;
+  color: black;
+  overflow: hidden;
+}
+
+.note-item .notes-content {
+  flex: 1; 
+  overflow-y: auto; 
+}
+
+
+@media (max-width: 768px) {
+  .notes-container {
+    padding: 10px;
+  }
+
+  .notes-section {
+    padding: 10px; 
+  }
+
+  .note-item {
+    height: auto; 
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 100%; 
+  }
+}
+
+
+.note-item.personal {
+  background-color: #efb1b1;
+}
+
+.note-item.work {
+  background-color: #c2e9d0; 
+}
+
+.note-item.inspirational {
+  background-color: #c3ccef; 
+}
+
+.notes-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  gap: 10px;
+  background-color: rgba(218, 208, 213, 0.561);
+}
+
+.notes-header button {
+  margin-left: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+h2 {
+  margin: 0;
+  color: black;
+}
+
+.notes-content {
+  padding-left: 100px;
+  padding-top: 20px;
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px; 
+  gap: 20px;
+}
+
+textarea,
+input {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.note-form button {
+  border-radius: 5px;
+  background-color: rgb(64, 154, 184);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+}
+
+.note-form button:hover {
+  background-color: rgb(107, 191, 219);
+  color: white;
+  cursor: pointer;
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 30px;
+}
+
+.edit-buttons button {
+  flex: 1;
+}
+
+.edit-buttons button:last-of-type {
+  background-color: rgb(241, 215, 215);
+  color: rgb(155, 21, 21);
+}
+
+.edit-buttons button:last-of-type:hover {
+  background-color: rgb(225, 137, 137);
+  color: rgb(155, 21, 21);
+}
+
+.toggle-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0.5rem; 
+  height: 400px;
+  gap: 50px;
+}
+
+.toggle-button {
+  border-radius: 5px;
+  background-color: #ccc;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+} 
+
+.toggle-button.active {
+  background-color: rgb(64, 154, 184); 
+}
+
+.toggle-button.active:hover {
+  background-color: rgb(107, 191, 219);
+}
+
+.toggle-buttons:first-child {
+  border-right: 1px solid #ccc;
+  padding: 20px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  margin-bottom: 20px;
+  background-color: #cccccc81;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.tag-item {
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px;
+  color: white;
+  border-radius: 5px;
+  list-style: none;
+}
+
+.tag-item.personal {
+  background-color: #ed8c8c; 
+ 
+  border: 2px solid #e34747;
+}
+
+.tag-item.work {
+  background-color: #6ebe8a; 
+  
+  border: 2px solid #2e6542;
+}
+
+.tag-item.inspirational {
+  background-color: #7b91e6; 
+  
+  border: 2px solid #4558a5;
+}
+
+.tag-item.other {
+  background-color: rgba(245, 211, 101, 0.797);
+ 
+  border: 2px solid rgba(219, 179, 47, 0.797);
+}
+
+.tag-item {
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  list-style: none;
+  display: inline-block;
+}
+
+.filter-container {
+  border: 0;
+  outline: 0;
+  font-size: 15px;
+  width: 12rem;
+  padding: 1rem 3rem 1rem 0.5rem;
+  background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+  linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+  background-color:rgb(64, 154, 184);
+  color: white;
+  border-radius: 0.25em;
+ 
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  &::-ms-expand {
+    display: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  option {
+    color: inherit;
+  }
+}
+
+.filter-container:hover {
+  background-color: rgb(107, 191, 219);
+}
