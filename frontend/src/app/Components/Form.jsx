@@ -103,7 +103,8 @@ export const FormComponent = ({ notes, setNotes }) => {
   };
 
   return (
-    <form
+    <div className="form-container">
+ <form
       className="note-form"
       onSubmit={(e) =>
         selectedNote ? handleUpdateNote(e) : handleAddNote(e)
@@ -171,5 +172,7 @@ export const FormComponent = ({ notes, setNotes }) => {
         <button type="submit">Add Note</button>
       )}
     </form>
+    </div>
+   
   );
 }

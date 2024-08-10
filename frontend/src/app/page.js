@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FormComponent } from "./Components/Form";
 import { NotesSection } from "./Components/NotesSection";
-
-import { TypeAnimation } from "react-type-animation";
+import { Title } from "./Components/Title";
 import "react-tabs/style/react-tabs.css";
 
 const Note = {
@@ -36,18 +35,9 @@ export default function Home() {
 
   return (
     <div className="app-container">
-      <div className="title-container">
-        <TypeAnimation
-          sequence={["Welcome to...", 1000, "My Notes", 1000]}
-          wrapper="span"
-          speed={10}
-          style={{ fontSize: "3rem" }}
-        />
-      </div>
+      <Title />
       <div className="content-container">
-        <div className="form-container">
-          <FormComponent notes={notes} setNotes={setNotes} />
-        </div>
+        <FormComponent notes={notes} setNotes={setNotes} />
         <NotesSection notes={notes} setNotes={setNotes} />
       </div>
     </div>
